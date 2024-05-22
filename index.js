@@ -37,7 +37,9 @@ async function fetchEvents() {
 
 function renderEvents() {
   if (!state.events || !state.events.length) {
-    eventsList.innerHtml = "<li>No Events Found</li>";
+    const li = document.createElement('li');
+    li.innerHTML = "<p>No Events Found</p>";
+    eventsList.appendChild(li);
     return;
   }
   // reset html of events container
