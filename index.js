@@ -36,7 +36,7 @@ async function fetchEvents() {
 }
 
 function renderEvents() {
-  if (!state.events.length) {
+  if (!state.events || !state.events.length) {
     eventsList.innerHtml = "<li>No Events Found</li>";
     return;
   }
@@ -96,10 +96,10 @@ async function addEvent(event) {
     }
 
     // reset html form values
-    addArtistForm.name.value = "";
-    addArtistForm.description.value = "";
-    addArtistForm.date.value = "";
-    addArtistForm.location.value = "";
+    addEventForm.name.value = "";
+    addEventForm.description.value = "";
+    addEventForm.date.value = "";
+    addEventForm.location.value = "";
 
     render();
   } catch (error) {
