@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 2 Party Planner</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header><h1>Event List</h1></header>
+    <div id="new-event-form-container">
+      <form id="new-event-form">
+        <label for="name">
+          Name
+          <input type="text" id="name" name="name" placeholder="Name" />
+        </label>
+        <label for="description">
+          Description
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Description"
+          ></textarea>
+        </label>
+        <label for="date">
+          Date
+          <input type="date" name="date" />
+        </label>
+        <label for="location">
+          Location
+          <input type="text" id="location" name="location" placeholder="name" />
+        </label>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+    <ul id="events-container"></ul>
+  </body>
+</html>
