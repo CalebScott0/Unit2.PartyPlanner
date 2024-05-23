@@ -67,7 +67,7 @@ function renderEvents() {
       try {
         event.preventDefault();
         removeEvent(element.id);
-        console.log(element.id);
+        // console.log(element.id);
       } catch (error) {
         console.log(error);
       }
