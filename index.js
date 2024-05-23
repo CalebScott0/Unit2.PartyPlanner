@@ -1,5 +1,5 @@
 //cohort
-const COHORT = "2403-ftb-wt-web-pt";
+const COHORT = "2403-ftb-et-web-pt";
 // API URL
 const API_URL = `https://fsa-crud-2aa9294fe819.herokuapp.com/api/${COHORT}/events`;
 
@@ -56,6 +56,7 @@ function renderEvents() {
     <button class = "delete-button" data-id="${element.id}">
     Delete</button
     `;
+    console.log(element.id);
     eventsList.appendChild(li);
 
     // select created button from above
@@ -65,7 +66,8 @@ function renderEvents() {
     deleteBtn.addEventListener("click", (event) => {
       try {
         event.preventDefault();
-        removeEvent(event.id);
+        removeEvent(element.id);
+        console.log(element.id);
       } catch (error) {
         console.log(error);
       }
@@ -87,7 +89,7 @@ async function addEvent(event) {
       body: JSON.stringify({
         name: addEventForm.name.value,
         description: addEventForm.description.value,
-        date: addEventForm.date.value,
+        date: new Date(addEventForm.date.value).toISOString(),
         location: addEventForm.location.value,
       }),
     });
@@ -111,9 +113,9 @@ async function addEvent(event) {
 
 async function removeEvent(id) {
     try {
-        const response = await fetch(`${API_URL}/${id}`, {
-            method: "DELETE",
-        });
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+      });
         render();
     } catch(error) {
         console.log(error);
